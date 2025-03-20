@@ -12,6 +12,7 @@ import App from "./App.vue";
 import AppState from './plugins/appState.js';
 import ThemeSwitcher from './components/ThemeSwitcher.vue';
 import Noir from './presets/Noir.js';
+import router from './router';
 
 
 const app = createApp(App);
@@ -30,7 +31,7 @@ app.use(AppState);
 app.use(ConfirmationService);
 app.use(ToastService);
 app.use(DialogService);
-
+app.use(router);
 app.component('ThemeSwitcher', ThemeSwitcher);
 
 
