@@ -1,0 +1,15 @@
+docker build -t fastrack-mini .                  buduje 
+
+docker run -d --name fastrack-mini --cap-add=NET_ADMIN --device /dev/net/tun -p 80:80 -p 5001:5001 -p 8000:8000 -p 4001:4001 fastrack-mini
+npm run dev  | Zenby wystartowal server primevue
+
+
+
+
+
+
+docker build -t moja-aplikacja .
+docker stop fastrack-mini
+docker rm fastrack-mini
+docker run -d --name fastrack-mini --cap-add=NET_ADMIN --device /dev/net/tun -p 80:80 -p 5001:5001 -p 4001:4001 moja-aplikacja
+-------------------------------------------------------------------------------------------------------------------------------------

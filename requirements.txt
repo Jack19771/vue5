@@ -9,4 +9,6 @@ pycryptodome
 pydantic
 websockets
 wsproto
-
+aiohttp
+typing
+json

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload do IPFS</title>
+</head>
+<body>
+    <h1>Dodaj plik do IPFS</h1>
+    <input type="file" id="fileInput">
+    <button onclick="uploadFile()">Wyślij</button>
+    <p id="output"></p>
+
+    <script>
+        async function uploadFile() {
+            let fileInput = document.getElementById('fileInput');
+            if (!fileInput.files.length) {
+                alert("Wybierz plik!");
+                return;
+            }
+            let formData = new FormData();
+            formData.append("file", fileInput.files[0]);
+
+            let response = await fetch("http://localhost:5001/api/v0/add", {
+                method: "POST",
+                body: formData
+            });
+            let result = await response.json();
+            document.getElementById("output").innerHTML = "CID: <a href='/ipfs/" + result.Hash + "' target='_blank'>" + result.Hash + "</a>";
+        }
+    </script>
+</body>
+</html>
