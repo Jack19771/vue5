@@ -12,7 +12,7 @@ import App from "./App.vue";
 import AppState from './plugins/appState.js';
 import ThemeSwitcher from './components/ThemeSwitcher.vue';
 import Noir from './presets/Noir.js';
-import router from './router';
+import router from './router';  // Upewnij się, że importujesz router poprawnie
 
 
 const app = createApp(App);
